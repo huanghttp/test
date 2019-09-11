@@ -1,0 +1,805 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <title>资料汇总</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html {
+            font-size: 13.33333333vw;
+        }
+
+        .wrap {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            min-width: 320px;
+            max-width: 640px;
+            background-image: url("./images/anpai-bg.png");
+            background-size: 100% 1.98rem;
+            background-repeat: no-repeat;
+            padding: 1.98rem 0.25rem 0rem 0.25rem;
+            box-sizing: border-box;
+            background-color: rgb(46, 66, 86);
+        }
+
+        .content {
+            width: 100%;
+            background: #fff;
+            border-radius: 0.1rem;
+            padding: 0.32rem 0.2rem;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font: 16px "圆体";
+        }
+
+        .title span {
+            display: inline-block;
+            padding-bottom: 4px;
+            border-bottom: 0.04rem solid #ffbb3d;
+            color: #2e4256;
+        }
+
+        .title a {
+            display: inline-block;
+            width: 86.67%;
+            text-align: center;
+        }
+
+        table {
+            margin-top: 0.3rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        table tr {
+            font-size: 0.3rem;
+            color: #999;
+
+        }
+
+        .keshi {
+            width: 0.5rem;
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+            box-sizing: border-box;
+            border-right: 1px solid #eee;
+        }
+
+        td img {
+            width: 1.2rem;
+            height: 0.34rem;
+            vertical-align: middle;
+        }
+
+        /*更改----------*/
+        .td1 {
+            width: 1rem;
+            padding-left: 0.2rem;
+            height: 0.8rem;
+        }
+
+        .td2 {
+            width: 1.5rem;
+            text-align: right;
+        }
+
+        .td3 {
+            font: 15px "圆体";
+            width: 3rem;
+            text-align: left;
+        }
+
+        .td4 {
+            padding-left: 0.2rem;
+        }
+
+        /*更改----------*/
+        .link {
+            width: 100%;
+            display: inline-block;
+            cursor: pointer;
+            color: #999;
+            text-decoration: none;
+        }
+
+        table p {
+            border: 1px solid #eee;
+        }
+
+        .wrap > img {
+            width: 7.11rem;
+            display: block;
+            margin: 0.36rem auto 0;
+        }
+
+        .color {
+            color: #418bfe !important;
+        }
+
+        .tishi {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .tishiCon {
+
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4.92rem;
+            height: 2rem;
+            background-color: #313131;
+            opacity: 0.9;
+            border-radius: 0.1rem;
+            padding-top: 0.62rem;
+            box-sizing: border-box;
+        }
+
+        .tishiCon img {
+            position: absolute;
+            top: 0.14rem;
+            right: 0.12rem;
+            width: 0.34rem;
+            height: 0.34rem;
+        }
+
+        .tishiCon h3 {
+            font: 0.32rem PingFangSC-Regular;
+            color: #fff;
+            text-align: center;
+        }
+
+        .tishiCon p {
+            font: 0.2rem PingFangSC-Regular;
+            color: rgb(253, 190, 12);
+            margin-top: 0.4rem;
+            text-align: center;
+        }
+
+        /*新添加-----------*/
+        .kaiying, .biye {
+            width: 100%;
+            height: 1.57rem;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 0.32rem 0.2rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+            margin-bottom: 0.28rem;
+            margin-top: 0.3rem;
+        }
+
+        .biye {
+            margin-top: 0.28rem;
+        }
+
+        .p1 {
+            font: 0.32rem "圆体";
+            color: #2e4256;
+        }
+
+        .p2 {
+            font-size: 0.3rem;
+            color: #999;
+            margin-top: 0.1rem;
+        }
+
+        .wanzhuan {
+            width: 100%;
+            height: 3.28rem;
+            background-color: #fff;
+            padding: 0.32rem 0.2rem;
+            box-sizing: border-box;
+            border-radius: 0.1rem;
+        }
+
+        .wanzhuan a {
+            display: block;
+            width: 1.32rem;
+            height: 1.31rem;
+            float: left;
+            margin-top: 0.44rem;
+            margin-right: 0.38rem;
+            text-decoration: none;
+        }
+
+        .wanzhuan a img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wanzhuan a p {
+            font-size: 0.24rem;
+            color: #999;
+            text-align: center;
+            margin-top: 0.1rem;
+        }
+
+        /*新添加-----------*/
+        #youli {
+            position: fixed;
+            top: 50%;
+            right: 0.2rem;
+            width: 1.37rem;
+            display: block;
+            transform: translateY(-50%);
+            transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="wanzhuan">
+        <p class="p1">玩转训练营</p>
+        <div>
+            <a href="./Qungui.html"><img src="./images/ziliao-icon1.png">
+                <p>群规必看</p></a>
+            <a href="./tingke.html"><img src="./images/ziliao-icon2.png">
+                <p>听课方式</p></a>
+            <a href="./Keqian.html"><img src="./images/ziliao-icon3.png">
+                <p>课外读物</p></a>
+            <a style="margin-right: 0px;" href="./YaoNew.html?type=1005"><img src="./images/ziliao-icon4.png">
+                <p>推荐有礼</p></a>
+
+        </div>
+    </div>
+    <div class="kaiying">
+        <p class="p1">开营班会</p>
+        <p class="p2">
+            <a class="link">快来看，开营啦！</a></p>
+    </div>
+    <div class="content">
+        <p class="title"><span>课时</span><a><span>课程内容</span></a></p>
+        <table>
+            <tr>
+                <td rowspan="3" class="keshi">第一课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_1.html?num=1"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_1.html?num=1">学习理财遇见未来不一样的自己</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_1.html?num=1"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_1.html?num=1"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_1.html?num=1">股票投资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_1.html?num=1"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./NewWan_1.html?num=1"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_1.html?num=1">人生穷富的关键</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_1.html?num=1"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第二课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_2.html?num=2"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_2.html?num=2">如何从穷人思维过渡到富人思维</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_2.html?num=2"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_2.html?num=2"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_2.html?num=2">P2P骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_2.html?num=2"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./NewWan_2.html?num=2"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_2.html?num=2">从1万到100万的理财法则</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_2.html?num=2"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第三课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_3.html?num=3"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_3.html?num=3">普通人是如何通过复利法则变富的</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_3.html?num=3"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_3.html?num=3"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_3.html?num=3">原始股投资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_3.html?num=3"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./NewWan_3.html?num=3"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_3.html?num=3">财务自由三大核心工具</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_3.html?num=3"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第四课</td>
+                <td class="td1">
+                    <a class="link color" href="./Gan_4.html?num=4"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_4.html?num=4">怎样越花越有钱</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_4.html?num=4"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_4.html?num=4"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_4.html?num=4">炒外汇投资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_4.html?num=4"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./NewWan_4.html?num=4"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_4.html?num=4">牛X的财务报表</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_4.html?num=4"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第五课</td>
+                <td class="td1">
+                    <a class="link color" href="./Gan_5.html?num=5"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_5.html?num=5">无论投不投资你都是在投资</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_5.html?num=5"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_5.html?num=5"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_5.html?num=5">虚拟货币投资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_5.html?num=5"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./NewWan_5.html?num=5"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_5.html?num=5">反常识ー一股价大暴跌收益会更高</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_5.html?num=5"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第六课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_6.html?num=6"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_6.html?num=6">8岁小女孩问倒巴菲特，为啥那么牛？</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_6.html?num=6"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_6.html?num=6"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_6.html?num=6">二元期权投资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_6.html?num=6"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./NewWan_6.html?num=6"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_6.html?num=6">升职？跳槽？创业？不懂企业怎么行？</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_6.html?num=6"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第七课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_7.html?num=7"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_7.html?num=7">别让“等有时间再做”毁了你</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_7.html?num=7"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_7.html?num=7"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_7.html?num=7">信用卡融资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_7.html?num=7"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./NewWan_7.html?num=7"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_7.html?num=7">小白必备的房地产投资神器</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_7.html?num=7"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第八课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_8.html?num=8"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_8.html?num=8">免费到底是便宜还是贵？</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_8.html?num=8"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_8.html?num=8"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_8.html?num=8">互联网金融传销骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_8.html?num=8"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./NewWan_8.html?num=8"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_8.html?num=8">懒人躺赚的理财方式</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_8.html?num=8"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第九课</td>
+                <td class="td1" valign="top">
+                    <a class="link color" href="./Gan_9.html?num=9"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_9.html?num=9">如果你爱TA，一定让TA学会理财</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_9.html?num=9"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./Fang_9.html?num=9"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_9.html?num=9">房地产投资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_9.html?num=9"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <a class="link color" href="./NewWan_9.html?num=9"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_9.html?num=9">理财不被割韭菜</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_9.html?num=9"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr class="margin_top">
+                <td rowspan="3" class="keshi">第十课</td>
+                <td class="td1" valign="top">
+                    <!--http://xiaobai.yaocaiwuziyou.com/index.php/Home/OldTest/Gan.html?num=10-->
+                    <!--/index.php/Home/OldTest/Gan.html?num=10-->
+                    <a class="link color" href="./Gan_10.html?num=10"> 早课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Gan_10.html?num=10">对于年轻人，财务自由有多重要？</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_10.html?num=10"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1">
+                    <!--/index.php/Home/OldTest/Fang.html?num=10-->
+                    <a class="link color" href="./Fang_10.html?num=10"> 防骗：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./Fang_10.html?num=10">企业融资骗局</a>
+                </td>
+                <td class="td2">
+                    <a href="./Fang_10.html?num=10"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="td1" valign="top">
+                    <!--/index.php/Home/OldTest/NewWan.html?num=10-->
+                    <a class="link color" href="./NewWan_10.html?num=10"> 晚课：</a>
+                </td>
+                <td class="td3">
+                    <a class="link color" href="./NewWan_10.html?num=10">手把手教你查看常用理财工具</a>
+                </td>
+                <td class="td2">
+                    <a href="./NewWan_10.html?num=10"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+        <table style="border:none;">
+            <tr class="margin_top">
+                <td rowspan="1" class="keshi">第十一课</td>
+                <td class="td4" colspan="2">
+                    <!--/index.php/Home/OldTest/Gan.html?num=11-->
+                    <a class="link color" href="./Gan_11.html?num=11">我的草根同学的财务自由之路</a>
+                </td>
+                <td class="td2">
+                    <a href="./Gan_11.html?num=11"><img src="./images/update.png"></a>
+                </td>
+            </tr>
+        </table>
+
+        <!-- <p class="setTime"></p> -->
+    </div>
+    <div class="biye">
+        <p class="p1">毕业班会</p>
+        <p class="p2">
+            <a class="link color" href="./Guan.html">快来看，毕业啦！</a>
+    </div>
+    <img src="./images/footer_img.png">
+</div>
+<div class="tishi">
+    <div class="tishiCon">
+        <img src="./images/rule-guanbi.png">
+        <h3>暂未更新该课程呦！</h3>
+        <p>每天下午17点更新晚课，次日早7点30更新早读！</p>
+
+    </div>
+</div>
+<a id="youli" href="./YaoNew.html?type=1004"><img style="width:100%;" src="./images/fahongbao.png"
+                                                                      alt=""></a>
+<!--<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>-->
+<script src="./js/jquery-1.11.1.min.js"></script>
+<!--<script type="text/javascript">
+    function WeChat(url,title,img,desc){
+    $.get("/index.php/Home/Index/Test.html",{url:window.location.href},function(data) {
+            var res =  JSON.parse( data );
+
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: res.appId, // 必填，公众号的唯一标识
+            timestamp: res.timestamp, // 必填，生成签名的时间戳
+            nonceStr: res.nonceStr, // 必填，生成签名的随机串
+            signature:res.signature,// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']// 必填，需要使用的JS接口列表
+        });
+
+    });
+
+    wx.ready(function () {
+        // alert(desc);
+        //转发给朋友
+        wx.onMenuShareAppMessage({
+            title: title,
+            desc: desc,
+            link: url,
+            imgUrl: img,
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+                ////console.log('转发成功');
+            },
+            cancel: function () {
+                ////console.log('转发失败');
+            }
+        });
+        wx.onMenuShareTimeline({
+            // alert(title);
+            title: title, // 分享标题
+            link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: img, // 分享图标
+            success: function () {
+            // 用户点击了分享后执行的回调函数
+            }
+        });
+    });
+}
+// WeChat("http://xiaobai.yaocaiwuziyou.com./NewZiliao?qid=87&type=301&id=","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+// WeChat("http://xiaobai.yaocaiwuziyou.com./NewZiliao?qid=87&type=301&id=","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+WeChat("http://xiaobai.yaocaiwuziyou.com./NewZiliao?qid=87&type=301&id=","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+</script>-->
+</body>
+<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+    //手指接触屏幕
+    document.addEventListener("touchmove", function (e) {
+        // console.log("11111");
+        document.getElementById("youli").style.webkitTransform = 'translateX(35px) translateZ(0px)';
+
+
+    });
+    document.addEventListener("touchend", function (e) {
+        // console.log("11111");
+
+        document.getElementById("youli").style.webkitTransform = 'translateX(0px) translateZ(0px)';
+    });
+
+    //根据图片的路径判断是否已更新，未更新的弹出提示框
+    $(".td2>img").click(function () {
+        var src = $(this).attr('src');
+        console.log($(this).attr('src'));
+        if (src == "./images/noupdate.png") {
+            $(".tishi").show();
+        }
+    })
+    // 根据a 是否有变色的class 判断是否更新
+    $(".td1>a").click(function () {
+        var state = $(this).hasClass("color")
+        if (!$(this).hasClass("color")) {
+            $(".tishi").show();
+        }
+    })
+    $(".td3>a").click(function () {
+        var state = $(this).hasClass("color")
+        if (!$(this).hasClass("color")) {
+            $(".tishi").show();
+        }
+    })
+    $(".td4>a").click(function () {
+        var state = $(this).hasClass("color")
+        if (!$(this).hasClass("color")) {
+            $(".tishi").show();
+        }
+    })
+    // 提示框弹出后 点击x可以关闭，点击其他区域也可关闭
+    $(".tishi").click(function () {
+        $(".tishi").hide();
+    })
+    $(".tishi .tishiCon").click(function (e) {
+        e.stopPropagation();
+    })
+    $(".tishiCon>img").click(function () {
+        $(".tishi").hide();
+    })
+
+    function resetTime(time) {
+        var timer = null;
+        var t = time;
+        var m = 0;
+        var s = 0;
+        m = Math.floor(t / 60 % 60);
+        m < 10 && (m = '0' + m);
+        s = Math.floor(t % 60);
+
+        function countDown() {
+            s--;
+            s < 10 && (s = '0' + s);
+            if (s.length >= 3) {
+                s = 59;
+                m = "0" + (Number(m) - 1);
+            }
+            if (m.length >= 3) {
+                m = '00';
+                s = '00';
+                clearInterval(timer);
+            }
+            $("#setTime").html("(" + m + ":" + s + ")");
+            // console.log(m+"分钟"+s+"秒");
+        }
+
+        timer = setInterval(countDown, 1000);
+    }
+
+    resetTime(120);
+
+</script>
+</html>

@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>邀请你一起参加12天小白理财训练营.你和富人之间，只差一个训练营</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .wrap {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            min-width: 320px;
+            max-width: 640px;
+            font-family: PingFangSC-Regular, sans-serif;
+            padding-bottom: 3rem;
+        }
+        a{
+            text-decoration: none;
+        }
+        .wrap>div{
+            width: 100%;
+        }
+        .wrap>div>img{
+            display: block;
+            width: 100%;
+        }
+        /*头部----------*/
+        .header{
+            display: none;
+            width: 100%;
+            height: 60px;
+           background-color:#556fb5;
+            padding:6px 0px 0px 13px;
+            box-sizing:border-box;
+            margin-bottom: 2px;
+        }
+        .headpic{
+            float: left;
+            width:50px;
+            height: 50px;
+            border-radius: 3px;
+            /*background: #fff;*/
+            margin-right:10px;
+        }
+        .headpic img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .username{
+            float: left;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 13px;
+            color: #fff;
+            padding-top: 7px;
+            line-height: 20px;
+        }
+        .username .name{
+            font-family: PingFangSC-Semibold, sans-serif;
+            font-size: 13px;
+        }
+        .username .state{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 11px;
+        }
+         /*头部------------*/
+        .footer{
+            position: fixed;
+            bottom:0px;
+            display: flex;
+            width: 100%;
+            height: 2.56rem;
+            background-color: #f4f4f4;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 0.34rem;
+            box-sizing:border-box;
+            justify-content: space-around;
+        }
+        .footer p{
+            font-size: 0.768rem;
+            text-align: center;
+            line-height: 1.835rem;
+        }
+        .footer .baoming{
+            width:9rem;
+            height: 1.664rem;
+            background-color:#fa5504;
+            border-radius: 0.213rem;
+            color: #fff;
+        }
+
+
+        .yaoqing{
+            color:#3d67da;
+        }
+        .footer2{
+            display: none;
+        }
+        /*.footer1,.footer2{
+            position: fixed;
+            bottom:0px;
+            display: flex;
+            justify-content: space-between;
+            padding:0.427rem 0.213rem;
+            box-sizing:border-box;
+            width: 100%;
+            height: 2.987rem;
+
+        }*/
+        .footer1{
+            background:#e0e0e0;
+            padding:0.427rem 0.427rem;
+        }
+        .footer2{
+            background:rgba(244,244,244,0.5);
+        }
+        .span1{
+            font-size: 0.981rem;
+            color: #fa5504;
+        }
+        .span2{
+            text-decoration: line-through;
+            font-size: 0.512rem;
+            color: #777;
+            margin-left: 5px;
+        }
+        .minge{
+            font-size:0.512rem;
+            color: #333;
+            margin-left: 5px;
+        }
+        .span3{
+             font-size: 0.512rem;
+             color: #ff9000 ;
+        }
+        .footer1 a{
+            font-size: 0.768rem;
+            display: block;
+            text-decoration: none;
+            width: 8rem;
+            height:2.091rem;
+            background: #fa5504;
+            text-align: center;
+            line-height: 2.091rem;
+            color: #fff;
+            border-radius:0.128rem;
+        }
+
+        .lingqu img{
+           /* font-size: 12px;
+            color:#ffff00;*/
+            display: block;
+            width: 5.973rem;
+            height:2.091rem;
+           /* background-image: url("zhuolu-lingqu.png");
+            background-size: 100%;
+            background-repeat: no-repeat;*/
+
+        }
+        .chakan img{
+            /*font-size: 12px;
+            color: #fff;*/
+            display: block;
+            width: 9.173rem;
+            height:2.091rem;
+            /*background-image: url("zhuolu-chakan.png");
+            background-size: 100%;
+            background-repeat: no-repeat;*/
+
+        }
+        /*添加*/
+        .partytwo{
+            width: 100%;
+            /*height: 3.584rem;*/
+            height: 3.5rem;
+            background:#fff;
+            padding: 0.2rem 0.299rem 0.1rem 0.427rem;
+            box-sizing:border-box;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .xianshi{
+            display: flex;
+            justify-content:space-between;
+
+        }
+        .xianshi span{
+            display: block;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.427rem;
+            color: #999;
+            margin-bottom:0rem;
+            margin-top:0.1rem;
+        }
+        .xianshi img{
+            vertical-align: middle;
+            width: 0.555rem;
+            margin-right: 0.128rem;
+        }
+        .xianshi i{
+            font-style: normal;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.427rem;
+            color: #777;
+            margin-top:0.1rem;
+        }
+        .yuanjia{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.427rem;
+            color: #777;
+            margin-top:0.1rem;
+        }
+        .yuanjia a{
+            display: inline-block;
+            width: 0.213rem;
+            height: 0.213rem;
+            border-radius: 50%;
+            background:#777;
+            vertical-align: middle;
+            margin-right: 0.171rem;
+            margin-top: -0.191rem
+        }
+        .yuanjia i{
+            font-style: normal;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.555rem;
+            color: #fa5504;
+        }
+        .line{
+            text-decoration:line-through;
+        }
+        .youhui{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 15px;
+            color: #555;
+        }
+        .youhui span{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 27px;
+            color: #ff6c00;
+        }
+        .lunxun{
+            display: inline-block;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 10px;
+            width: 120px;
+            height: 20px;
+            border-radius:5px;
+            text-align: center;
+            line-height: 20px;
+            background:#f2f2f2;
+            vertical-align: middle;
+            margin-top: 8px;
+        }
+        .lunxun p{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 10px;
+            color: #4f6cbc;
+        }
+
+
+        .pay img{
+            width: 15px;
+            height: 15px;
+            vertical-align: middle;
+        }
+        .pay{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 12px;
+            color: #fa5504;
+        }
+        .zutuan img{
+            width: 122px;
+            height: 42px;
+            margin-top: 5px;
+            margin-left: -10px;
+        }
+
+          /*footer 改装*/
+        .footer1,.footer2{
+            /*float: left;*/
+            position: fixed;
+            bottom:0px;
+            width: 100%;
+            height: 2.987rem;
+            padding:0.427rem 0.213rem;
+            box-sizing:border-box;
+        }
+         .footer1 .div1{
+            float: left;
+         }
+        .footer1 .div2{
+            float: right;
+         }
+         .footer2 .div3{
+            float: left;
+         }
+         .footer2 .div4{
+            float: right;
+         }
+        .footer2{
+            display: none;
+        }
+
+         /*投诉*/
+        .tousu img{
+            width:32px;
+            height: 32px;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+        }
+
+        /*遮罩层送红包提示*/
+        .zhezhao{
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.88);
+        }
+        .zhe_content{
+            width:321px;
+            height: 437px;
+            background-image: url("/Public/xun/images/xiaobai-zheBg.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position:absolute;
+            top:50%;
+            left: 50%;
+            margin-top: -218px;
+            margin-left: -161px;
+            padding-top:61px;
+            box-sizing:border-box;
+        }
+        .zhe_content img{
+            display: block;
+            width:70px;
+            height: 70px;
+            margin:0 auto;
+            border-radius: 10px;
+        }
+        .zhe_name{
+            font-family: PingFangSC-Medium, sans-serif;
+            font-size:15px;
+            color: #fff;
+            margin-top: 18px;
+            text-align: center;
+        }
+        .song{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size:31px;
+            color: #fff;
+            margin-top: 21px;
+            text-align: center;
+        }
+        .zhufu,.zhufu1{
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size:15px;
+            color: #fda83c;
+            text-align: center;
+            line-height: 28px;
+        }
+        .zhufu{
+            margin-top: 26px;
+        }
+        .zhe_content a{
+            display: block;
+            width: 245px;
+            height: 42px;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size:18px;
+            color: #333;
+            text-align: center;
+            line-height: 42px;
+            background-color: #fea93a;
+            margin:0 auto;
+            text-decoration: none;
+            border-radius:5px;
+            margin-top: 45px;
+            cursor: pointer;
+        }
+    /*遮罩层送红包提示*/
+    /*领取失败弹窗*/
+        .tanchuang{
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.88);
+            /*z-index: 20;*/
+        }
+        .tan_content{
+            width:12.117rem;
+            height: 15.104rem;
+            background-image: url("/Public/xun/images/xiaobai-tanbg.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position:absolute;
+            top:50%;
+            left: 50%;
+            margin-top: -7.552rem;
+            margin-left: -6.0585rem;
+            padding-top:100px;
+            box-sizing:border-box;
+        }
+        .tan_content>p{
+            color: #fff;
+            font-size: 0.817rem;
+            text-align: center;
+            margin-bottom: 0.853rem;
+        }
+        /*添加*/
+        .tan_content div{
+            width: 10.4107rem;
+            height: 4.267rem;
+            border:1px dashed #fea93a;
+            margin: 0 auto;
+            padding-top: 0.555rem;
+            box-sizing: border-box;
+        }
+        .tan_content div p{
+            font-size: 0.597rem;
+            color: #fea93a;
+            text-align: center;
+            line-height: 0.9rem;
+        }
+        /*添加*/
+        .tan_content a{
+            display: block;
+            width: 10.453rem;
+            height: 1.792rem;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size:0.768rem;
+            color: #333;
+            text-align: center;
+            line-height: 1.792rem;
+            background-color: #fea93a;
+            margin:0 auto;
+            text-decoration: none;
+            border-radius:0.213rem;
+            margin-top: 1.92rem;
+        }
+     /*领取失败弹窗*/
+     .tanchuangSC{
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.88);
+        }
+        .tan_contentSC{
+            width:12.117rem;
+            height: 15.104rem;
+            background-image: url("/Public/xun/images/xiaobai-tanbg.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position:absolute;
+            top:50%;
+            left: 50%;
+            margin-top: -7.552rem;
+            margin-left: -6.059rem;
+            padding-top:4.523rem;
+            box-sizing:border-box;
+        }
+        .tan_contentSC>p{
+            color: #fff;
+            font-size: 0.817rem;
+            text-align: center;
+            margin-bottom:1.195rem;
+        }
+        /*添加*/
+        .tan_contentSC div{
+            width: 244px;
+            height: 100px;
+            border:1px dashed #fea93a;
+            margin: 0 auto;
+            padding-top: 0.939rem;
+            box-sizing: border-box;
+        }
+        .tan_contentSC div p{
+            font-size: 0.597rem;
+            color: #fea93a;
+            text-align: center;
+            line-height: 0.9rem;
+        }
+        /*添加*/
+        .tan_contentSC a{
+            display: block;
+            width: 10.453rem;
+            height: 1.792rem;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size:0.768rem;
+            color: #333;
+            text-align: center;
+            line-height: 1.792rem;
+            background-color: #fea93a;
+            margin:0 auto;
+            text-decoration: none;
+            border-radius:0.213rem;
+            margin-top: 1.52rem;
+        }
+     /*领取失败弹窗*/
+     /*领取成功提示*/
+      .success{
+        display: none;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        margin-top: -15px;
+        margin-left: -60px;
+        width: 120px;
+        height: 120px;
+        background-color: rgba(0,0,0,0.6);
+        z-index: 25;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 5px;
+     }
+     .success img{
+        display: block;
+        width:50px;
+        height:50px;
+        margin:10px auto;
+     }
+     /*新添加报名成功弹窗*/
+    /*.tanchuangSC{
+        display: none;
+        width:284px;
+        height: 354px;
+        background-image: url("/Public/xun/images/xiaobai-tanbg.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position:absolute;
+        top:50%;
+        left: 50%;
+        margin-top: -177px;
+        margin-left: -142px;
+        padding-top:100px;
+        box-sizing:border-box;
+    }*/
+
+    .tanchuangShare{
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,.88);
+
+    }
+    .tanchuangShare_img1{
+        width: 12.37rem;
+        height:7.765rem;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+    .tanchuangShare_img2{
+        width: 4.416rem;
+        height: 1.579rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -0.789rem;
+        margin-left: -2.28rem;
+    }
+
+     /* 新加二维码模块*/
+    .codeWrap{
+        display: none;
+        width: 100%;
+        /*height: 277px;*/
+        background-color: #fff;
+        padding: 20px 0;
+
+    }
+    .codeWrap p{
+        text-align: center;
+    }
+    .duihaoIcon{
+        font-family: PingFangSC-Regular;
+        font-size: 17px;
+        color: #383A4F;
+
+    }
+    .duihaoIcon img{
+        width: 30px;
+        height: 30px;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    .zhuyi{
+        margin-top: 12px;
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #FF3030;
+    }
+    .erweima{
+        display: block;
+        width: 123px!important;
+        height: 123px!important;
+        margin: 13px auto 5px;
+    }
+    .shibie{
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #7F7F7F;
+    }
+
+    /* 新加二维码模块*/
+
+
+    </style>
+</head>
+<!--引入分享文件-->
+    <script>
+window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb4bc18fe3dbcf257&redirect_uri=http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006%26id=0&response_type=code&scope=snsapi_userinfo";
+</script>
+<body>
+    <div class="wrap">
+                <div class="header">
+            <div class="headpic"><img src="" alt=""></div>
+            <div class="username">
+                <p class="name">已领取5元优惠</p>
+                <p class="state">赶紧报名理财入门课程吧，你不理财财不理你</p>
+            </div>
+        </div>
+        <!-- <div><img src="/Public/xun/images/zhuolu1New.jpg" alt=""></div> -->
+        <div><img src="/Public/xun/ABtest/douyin1.jpg" alt=""></div>
+        <div class="partytwo">
+            <div class="xianshi">
+                <div>
+                    <p class="yuanjia"><a></a>原价199元</p>
+                    <p class="yuanjia"><a></a><i>限时推广价12元</i></p>
+                    <p class="yuanjia" ><a></a>现在报名赠送一本价值23元电子书</p>
+                    <span><img src="/Public/xun/images/zhuolu-tuikuan.png" alt="">开课3天内，课程内容不满意无条件退款</span>
+
+                </div>
+                <div>
+                    <a class="lunxun" style="height:60px;overflow:hidden;">
+                        <div class="carousel" >
+                            <p>王***玲 报名成功</p>
+                            <p>顺***然 报名成功</p>
+                            <p>华***A 报名成功</p>
+                            <p>小***羽 报名成功</p>
+                            <p>萌***萌 报名成功</p>
+                            <p>梧***桐 报名成功</p>
+                            <p>加***度 报名成功</p>
+                            <p>凌***辰 报名成功</p>
+                            <p>神***5 报名成功</p>
+                            <p>无***心 报名成功</p>
+                            <p>夕***杨 报名成功</p>
+                            <p>风***茂 报名成功</p>
+                            <p>C***艺 报名成功</p>
+                            <p>A***3 报名成功</p>
+                            <p>W***g 报名成功</p>
+                            <p>幽***心 报名成功</p>
+                            <p>家***^ 报名成功</p>
+                            <p>锅***1 报名成功</p>
+                            <p>潜***用 报名成功</p>
+                            <p>要***么 报名成功</p>
+                            <p>鼻***治 报名成功</p>
+                            <p>D***L 报名成功</p>
+                            <p>梁***礼 报名成功</p>
+                            <p>樂***樂 报名成功</p>
+                            <p>A***^ 报名成功</p>
+                            <p>无***你 报名成功</p>
+                            <p>苓***凤 报名成功</p>
+                            <p>来***^ 报名成功</p>
+                            <p>兵***兵 报名成功</p>
+                            <p>毛***朋 报名成功</p>
+                            <p>天***材 报名成功</p>
+                            <p>婚***5 报名成功</p>
+                            <p>彩***芳 报名成功</p>
+                            <p>劉***君 报名成功</p>
+                            <p>顺***顺 报名成功</p>
+                            <p>翎***翎 报名成功</p>
+                            <p>王***川 报名成功</p>
+                            <p>尚***国 报名成功</p>
+                            <p>M***e 报名成功</p>
+                            <p>刘***博 报名成功</p>
+                            <p>慎***独 报名成功</p>
+                            <p>马***3 报名成功</p>
+                            <p>T***^ 报名成功</p>
+                            <p>涛***涛 报名成功</p>
+                            <p>@***超 报名成功</p>
+                            <p>李***丹 报名成功</p>
+                            <p>懒***虫 报名成功</p>
+                            <p>活***！ 报名成功</p>
+                            <p>也***行 报名成功</p>
+                            <p>A***装 报名成功</p>
+                            <p>K***n 报名成功</p>
+                            <p>I***n 报名成功</p>
+                            <p>徐***舟 报名成功</p>
+                            <p>J***a 报名成功</p>
+                            <p>若***若 报名成功</p>
+                            <p>大***。 报名成功</p>
+                            <p>水***^ 报名成功</p>
+                            <p>美***7 报名成功</p>
+                            <p>于***嘉 报名成功</p>
+                            <p>A***7 报名成功</p>
+                            <p>逆***风 报名成功</p>
+                            <p>李***旺 报名成功</p>
+                            <p>E***壳 报名成功</p>
+                            <p>友***碧 报名成功</p>
+                            <p>水***月 报名成功</p>
+                            <p>阿***雨 报名成功</p>
+                            <p>蓝***姬 报名成功</p>
+                            <p>A***萎 报名成功</p>
+                            <p>梦***务 报名成功</p>
+                            <p>清***写 报名成功</p>
+                            <p>染***笑 报名成功</p>
+                            <p>青***E 报名成功</p>
+                            <p>周***均 报名成功</p>
+                            <p>石***玉 报名成功</p>
+                            <p>一***光 报名成功</p>
+                            <p>王***琪 报名成功</p>
+                            <p>碎***~~ 报名成功</p>
+                            <p>戈***者 报名成功</p>
+                            <p>莹***~ 报名成功</p>
+                            <p>王***青 报名成功</p>
+                            <p>A***3 报名成功</p>
+                            <p>程***理 报名成功</p>
+                            <p>奇***点 报名成功</p>
+                            <p>诗***歌 报名成功</p>
+                            <p>阿***est 报名成功</p>
+                            <p>人***余 报名成功</p>
+                            <p>他***鸢 报名成功</p>
+                            <p>A***6 报名成功</p>
+                            <p>鑫***。 报名成功</p>
+                            <p>李***池 报名成功</p>
+                            <p>六***六 报名成功</p>
+                            <p>随***心 报名成功</p>
+                            <p>梓***麻 报名成功</p>
+                            <p>张***振 报名成功</p>
+                            <p>䲜***䲜 报名成功</p>
+                            <p>c***an 报名成功</p>
+                            <p>马***^ 报名成功</p>
+                            <p>王***玲 报名成功</p>
+                            <p>顺***然 报名成功</p>
+                            <p>华***A 报名成功</p>
+
+                        </div>
+                    </a>
+                     <div class="fukuan" style="display:none;">
+                        <p class="pay"><img  src="/Public/xun/images/zhuolu-pay.png"  alt="">你已报名成功！</p>
+                        <a href="/index.php/Home/Index/YaoNew.html?type=1006" class="zutuan" id="zutuan"><img src="/Public/xun/images/zhuolu-zutuan.png" alt=""></a>
+                        <!-- <a href="/index.php/Home/Index/YaoNew.html?type=1006" class="zutuan"><img src="/Public/xun/images/zhuolu-zutuan.png" alt=""></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div><img src="/Public/xun/groupBuy/img/groupBuy-flowpath.png"></div>
+        <div><img src="/Public/xun/images/zhuolu2New.png" alt=""></div>
+
+        <div><img src="/Public/xun/images/zhuolu3.png" alt=""></div>
+        <div><img src="/Public/xun/ABtest/douyin5.png" alt=""></div>
+        <!-- <div><img src="/Public/xun/ABtest/douyin6.png" alt=""></div> -->
+        <div><img src="/Public/xun/images/zhuolu4.png" alt=""></div>
+        <div><img src="/Public/xun/images/zhuolu5.png" alt=""></div>
+        <!-- <div><img src="/Public/xun/images/zhuolu6.png" alt=""></div> -->
+        <div><img src="/Public/xun/images/zhuolu71.png" alt=""></div>
+        <!--  <div class="footer">
+
+           <a href="/index.php/Home/User/WxPayAct.html?type=1006"><p class="baoming">立即报名参加（12元）</p></a> -->
+            <!-- <p><a class="yaoqing" href="/index.php/Home/Index/YaoNew.html?type=3">邀请好友</a></p>
+        </div>-->
+        <div class="footer1">
+            <div class="div1">
+                 <p><span class="span1">￥12</span><span class="span2">价值199</span></p>
+                <p class="minge">优惠即将结束</p>
+            </div>
+            <div class="div2"><a id="setTime" href="/index.php/Home/Pay/WxPayAct.html?type=1006&uid=">马上报名</a></div>
+        </div>
+        <div class="footer2">
+            <div class="div3">
+                <a class="lingqu" id="fanxian" href="/index.php/Home/Index/YaoNew.html?type=1006"><img src="/Public/xun/images/zhuolu-lingquNew.png" alt=""></a>
+            </div>
+            <div class="div4"><a class="chakan" id="chakan" href="/index.php/Home/Index/Chenggong.html?type=1006"><img src="/Public/xun/images/zhuolu-chakan.png" alt=""></a></div>
+        </div>
+        <input type="text" id="inputId" value="" style="display:none;">
+
+        <!-- 判断是否报名 1报名了 2没报名 -->
+        <!-- 如果没报名是否有邀请id  1有id 0没id-->
+        <input type="text" id="yaoqingId" value="" style="display:none;">
+        <!-- 是不是本人  1 不是本人 0 是本人-->
+        <input type="text" id="myself" value="" style="display:none;">
+
+         <!-- 以前是否有邀请者  1 有 0 无-->
+        <input type="text" id="yaoperson" value="" style="display:none;">
+
+        <a href="/index.php/Home/Index/Tousu.html" class="tousu">
+            <img src="/Public/xun/images/tousu.png" alt="">
+        </a>
+    </div>
+    <!-- <div class="zhezhao">
+        <img class="img" src="/Public/xun/images/zhezhao-bg.png" alt="">
+        <img onclick="hide()" class="know" src="/Public/xun/images/zhezhao-konw.png" alt="">
+   </div> -->
+
+    <div class="zhezhao">
+        <div class="zhe_content">
+            <!-- 头像 -->
+            <img src="" alt="">
+            <!-- 微信名 -->
+            <p class="zhe_name"></p>
+            <p class="song">送你5元红包</p>
+            <p class="zhufu">祝你新年快乐，财源广进！</p>
+            <p class="zhufu1">新的一年一起发财！</p>
+            <a>领取并查看详情</a>
+        </div>
+    </div>
+    <div class="tanchuang">
+        <div class="tan_content">
+            <p>无法领取自己的红包</p>
+            <div>
+                <p>现在报名，享受限时推广价12元<br/>还赠送你一本价值23元的电子书<br/>赶紧行动吧！</p>
+            </div>
+            <a onclick="aaa()">我知道啦  马上报名</a>
+        </div>
+    </div>
+    <!-- 报名成功弹窗 -->
+    <div class="tanchuangSC">
+        <div class="tan_contentSC">
+            <p>你已报名，无法领取红包</p>
+            <div>
+                <p>现在邀请好友，他得5元报名优惠<br/>你得5元现金红包（可提现）</p>
+            </div>
+            <a onclick="yaoqing()">我知道啦  马上邀请</a>
+        </div>
+    </div>
+    <div class="tanchuangShare">
+        <img class="tanchuangShare_img1" src="/Public/xun/images/fenxiang-xiaobai.png">
+        <img class="tanchuangShare_img2" onclick="iKonw()" src="/Public/xun/images/iknow.png">
+    </div>
+    <div class="success">
+        <img src="/Public/xun/images/lingqu-success.png" alt="">
+        <p>领取成功</p>
+    </div>
+    
+    <input type="text" id="userId" value="" style="display:none;">
+    <input type="text" id="typeId" value="1006" style="display:none;">
+        <input type="text" id="pag" value="1503" style="display:none;">
+    
+     <!--引入按钮埋点文件-->
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title> </title>
+    
+</head>
+
+<body>    
+   
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"> 
+
+var userId = $("#userId").val();
+var typeId = $("#typeId").val();
+var pag = $("#pag").val();
+function buttons(x){
+    var databuttons = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag,'buttons':x});
+    console.log(databuttons);
+
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.178.151:8082/databutton/databutton/databuttons", 
+        // 请求URL
+        data:databuttons,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+}
+
+
+
+</script>
+    <!--引入UV埋点文件-->
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title> </title>
+    
+</head>
+
+<body>    
+   
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"> 
+
+var userId = $("#userId").val();
+var typeId = $("#typeId").val();
+var pag = $("#pag").val();
+
+var datapagesComeIn = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag});
+console.log(datapagesComeIn);
+
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.178.151:8082/datapage/datapage/datapages",    // 请求URL
+        data:datapagesComeIn,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+
+
+</script>
+     <!--引入埋点文件-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title> </title>
+    
+</head>
+
+<body>    
+   
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"> 
+
+var userId = $("#userId").val();
+var typeId = $("#typeId").val();
+var pag = $("#pag").val();
+
+
+// 分享
+
+ function WeChat(url,title,img,desc){
+    $.get("/index.php/Home/Index/Test.html",{url:window.location.href},function(data) {
+            var res =  JSON.parse( data );
+
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: res.appId, // 必填，公众号的唯一标识
+            timestamp: res.timestamp, // 必填，生成签名的时间戳
+            nonceStr: res.nonceStr, // 必填，生成签名的随机串
+            signature:res.signature,// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']// 必填，需要使用的JS接口列表
+        });
+
+    });
+
+    wx.ready(function () {
+        // alert(desc);
+        //转发给朋友
+        wx.onMenuShareAppMessage({
+            title: title,
+            desc: desc,
+            link: url,
+            imgUrl: img,
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+                ////console.log('转发成功');
+               
+               shareFriend('1');
+            },
+            cancel: function () {
+                ////console.log('转发失败');
+            }
+        });
+        wx.onMenuShareTimeline({
+            // alert(title);
+            title: title, // 分享标题
+            link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: img, // 分享图标
+            success: function () {
+            // 用户点击了分享后执行的回调函数
+            
+                shareFriend('2');
+            }
+        });
+    });
+}
+// WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006&id=","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006&id=","送你5元红包！邀请你一起学习理财入门知识！","http://xiaobai.yaocaiwuziyou.com/Site/yaoqing.png","你不理财，财不理你");
+
+
+function shareFriend(x){
+    console.log(x);
+    var datashares = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag,'share':x});
+console.log(datashares);
+
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.178.151:8082/datashare/datashare/datashares",    // 请求URL
+        data:datashares,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+
+}
+
+</script>
+     <!--引入埋点文件-->
+    <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title> </title>
+    
+</head>
+
+<body>    
+    
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">  
+
+//模板页面分享埋点
+
+var userId = $("#userId").val();
+var typeId = $("#typeId").val();
+var pag = $("#pag").val();
+// alert(typeId);
+console.log(pag);
+// 按钮通过分享来区分
+// 页面进入的分享为0  停留时长的分享为0(另一个接口)   zutuan分享为3 fanxian为4  chakan为5  setTime为6
+// //转发给朋友 为1  发送到朋友圈为2
+// function shareMai(){
+//     var data2= JSON.stringify({'uid':userId,'qudao':typeId,'pag':pag});
+//     console.log(data2);
+//     $.ajax({
+//         type:"POST",    // 请求类型
+//         dataType:"json",    // 数据返回类型
+//          url:"http://39.104.52.189:8082/cls/cls/update1",    // 请求URL
+//         data:data2,
+//         // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+//         contentType: 'application/json;charset=UTF-8',
+//         success:function(data){    // 成功返回的结果(响应)
+//             console.log(data);
+//         }
+//     });
+
+// }
+
+function shareMai1(fenxiang){
+    var data1 = JSON.stringify({'userid':userId,'qudao':typeId,'pag':pag,'fenxiang':fenxiang});
+    console.log(data1);
+    console.log(typeId);
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.52.189:8082/newpt/newpt/add",     // 请求URL
+        data:data1,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+
+}
+
+
+
+    function WeChat(url,title,img,desc){
+    $.get("/index.php/Home/Index/Test.html",{url:window.location.href},function(data) {
+            var res =  JSON.parse( data );
+
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: res.appId, // 必填，公众号的唯一标识
+            timestamp: res.timestamp, // 必填，生成签名的时间戳
+            nonceStr: res.nonceStr, // 必填，生成签名的随机串
+            signature:res.signature,// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']// 必填，需要使用的JS接口列表
+        });
+
+    });
+
+    wx.ready(function () {
+        // alert(desc);
+        //转发给朋友
+        wx.onMenuShareAppMessage({
+            title: title,
+            desc: desc,
+            link: url,
+            imgUrl: img,
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+                ////console.log('转发成功');
+               
+                shareMai1('1');
+            },
+            cancel: function () {
+                ////console.log('转发失败');
+            }
+        });
+        wx.onMenuShareTimeline({
+            // alert(title);
+            title: title, // 分享标题
+            link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: img, // 分享图标
+            success: function () {
+            // 用户点击了分享后执行的回调函数
+           
+            shareMai1('2');
+            }
+        });
+    });
+}
+// WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006&id=","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006&id=","送你5元红包！邀请你一起学习理财入门知识！","http://xiaobai.yaocaiwuziyou.com/Site/yaoqing.png","你不理财，财不理你");
+</script>    -->
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="/Public/xun/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+
+        (function(){
+            var width = document.documentElement.clientWidth;
+            var styleN = document.createElement('style');
+            styleN.innerHTML = 'html{font-size: '+ width/16 +'px !important;}';
+            document.head.appendChild(styleN);
+        })();
+
+console.log(typeId);
+// 热力图
+var baoming = $("#inputId").val();
+if(baoming==1){
+    $(".codeWrap").show();
+}
+console.log(baoming);
+
+if(baoming == 2){
+    var number1= true,number2 = true,number3 = true,number4 = true,number5 = true,number6 = true,number7 = true,number8 = true,number9 = true;
+    // ,number3,number4,number5,number6,number7
+    $(window).scroll(function(event){
+        // console.log(document.body.scrollHeight);
+        // var numPing = Math.floor(document.body.scrollHeight/window.innerHeight);
+         // 屏幕以上的高度
+        // alert("111");
+        var scrollTop = Number(document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop);
+        // 页面总高度
+        var hightz = Number(document.body.scrollHeight);
+        // 屏幕高度
+        var hightp =Number(window.innerHeight);
+        
+        if(scrollTop>=0 && scrollTop<570){
+             console.log("第一屏");
+             // var pag = '1';
+             if(number1){
+                console.log("发送请求");
+                ajaxFun('1',hightz,hightp,scrollTop);
+             }
+             number1 = false;
+        }
+        if(scrollTop>=570 && scrollTop< 1270){
+            console.log("第二屏");
+             if(number2){
+                console.log("发送请求");
+                ajaxFun('2',hightz,hightp,scrollTop);
+             }
+             number2 = false;
+        }
+        if(scrollTop>=1270 && scrollTop< 1610){
+             console.log("第三屏");
+              if(number3){
+                console.log("发送请求");
+                ajaxFun('3',hightz,hightp,scrollTop);
+             }
+             number3 = false;
+        }
+        if(scrollTop>=1610 && scrollTop< 2110){
+             console.log("第四屏");
+              if(number4){
+                console.log("发送请求");
+                ajaxFun('4',hightz,hightp,scrollTop);
+             }
+             number4 = false;
+        }
+        if(scrollTop>= 2110 && scrollTop< 2550){
+             console.log("第5屏");
+              if(number5){
+                console.log("发送请求");
+                ajaxFun('5',hightz,hightp,scrollTop);
+             }
+             number5 = false;
+        }
+        if(scrollTop>= 2550 && scrollTop< 3180){
+             console.log("第6屏");
+              if(number6){
+                console.log("发送请求");
+                ajaxFun('6',hightz,hightp,scrollTop);
+             }
+
+             number6 = false;
+        }
+        if(scrollTop>= 3180 && scrollTop<3610){
+             console.log("第7屏");
+              if(number7){
+                console.log("发送请求");
+                ajaxFun('7',hightz,hightp,scrollTop);
+             }
+             number7 = false;
+        }
+        if(scrollTop>= 3610 && scrollTop<4140){
+            if(number8){
+                console.log("发送请求");
+                ajaxFun('8',hightz,hightp,scrollTop);
+             }
+             number8 = false;
+            
+        }
+        if(scrollTop>= 4140){
+            if(number9){
+                console.log("发送请求");
+                ajaxFun('9',hightz,hightp,scrollTop);
+             }
+             number9 = false;
+             
+        }
+    });
+
+}
+
+function ajaxFun(x,hightz,hightp,scrollTop){
+   
+    
+    var data12 = JSON.stringify({'uid':userId,'qudao':typeId,'status':x,'pag':pag,'hightz': hightz,'hightp':hightp,'highty':scrollTop});
+    console.log(data12);
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.178.151:8082/newxb/newxb/update1",    // 请求URL
+        data:data12,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+}
+
+
+
+// setInterval(function(){
+    
+//     shareMai();
+// },15000);
+
+
+
+// 新逻辑 先判断是否有邀请关系,有弹出5元框
+var yaoqingId = $("#yaoqingId").val();
+
+if(yaoqingId>0){
+    $(".zhezhao").slideDown();
+    // 有邀请关系，再判断是否报名
+   
+}else{
+    // 无邀请关系，再判断是否报名
+    var state = $("#inputId").val();
+    // var state =1;
+    if(state==1){
+        // 已报名  改变显示状态
+        $(".footer1").hide();
+        $(".footer2").show();
+        $("#yifu").html("已报名，电子书在拉群后发放");
+        $(".lunxun").hide();
+        $(".fukuan").show();
+        $(".tousu").show();
+        // $(".header").hide();
+    }else{
+        // 未报名 再判断以前是否有邀请者
+        var yaoperson = $("#yaoperson").val();
+        // var yaoperson = 0;
+        if(yaoperson==1){
+            // 以前有邀请者  判断是不是本人
+            var myself = $("#myself").val();
+            // var myself =1;
+            if(myself==1){
+                // 不是自己 进入7元报名页
+                $(".header").show();
+                // $(".success").show().delay(3000).hide(0);
+                $(".tanchuang").hide();
+                $(".zhezhao").hide();
+                $(".span1").html("￥7");
+                $(".span2").html("(限时推广价12元)");
+                $(".minge").html("好友红包已再减5元");
+                if($(".zhezhao").css("display")=="none"){
+                    resetTime(540);
+                }
+            }
+        }
+    }
+}
+
+
+
+//红包遮罩层的按钮 
+$(".zhe_content a").click(function(){
+     var state = $("#inputId").val();
+    // var state = 0;
+    if(state==1){
+        // 已报名 
+        $(".footer1").hide();
+        $(".footer2").show();
+        $("#yifu").html("已报名，电子书在拉群后发放");
+        $(".lunxun").hide();
+        $(".fukuan").show();
+        $(".tousu").show();
+        // $(".header").hide();
+        // 你已报名弹窗显示
+        $(".tanchuangSC").show();
+        $(".zhezhao").hide();
+        
+
+    }else{
+         // 未报名 判断是否是本人
+        var myself = $("#myself").val();
+        // var myself =0;
+        if(myself==0){
+            // 是自己 无法领取 弹窗显示
+            $(".tanchuang").show();
+            $(".header").hide();
+        }else{ 
+            $(".header").show();
+            $(".success").show().delay(3000).hide(0);
+            $(".tanchuang").hide();
+            $(".zhezhao").hide();
+            $(".span1").html("￥7");
+            $(".span2").html("(限时推广价12元)");
+            $(".minge").html("好友红包已再减5元");
+            if($(".zhezhao").css("display")=="none"){
+                resetTime(540);
+            }
+        }
+
+    }
+})
+
+// 邀请者是本人按钮
+function aaa(){
+    $(".tanchuang").hide();
+    $(".zhezhao").hide();
+    if($(".tanchuang").css("display")=="none"){
+            resetTime(540);
+    }
+}
+
+// 点击马上邀请 分享弹窗显示
+function yaoqing(){
+    $(".tanchuangShare").show();    
+}
+// 点击我知道了 分享弹窗隐藏
+function iKonw(){
+    $(".tanchuangShare").hide(); 
+    $(".tanchuangSC").hide();
+}
+
+// 添加 轮播
+window.onload = function () {
+
+            let uw = $('.carousel').innerHeight()
+            let time = (Math.random() * (5000 - 1000 + 1) + 1000).toFixed(0)
+            let len = $('.carousel>p').length;
+            let index = window.localStorage.getItem('INDEXI') || 1;
+            let num = window.localStorage.getItem('NUM') || 200;
+            $('.span3').html(num)
+            $('.carousel').css('transform', 'translateY(' + index * (-20) + 'px)')
+
+            function fun() {
+                time = (Math.random() * (5000 - 1000 + 1) + 1000).toFixed(0)
+                if (index < len - 2) {
+                   index++;
+                    $('.carousel').css('transition', 'all 1s')
+                    $('.carousel').css('transform', 'translateY(' + index * (-20) + 'px)')
+                    if (num > 5) {
+                        num--
+                    }
+                    $('.span3').html(num)
+                }
+                if (index == len - 2) {
+                    num++
+                    time = 0
+                     index = 0;
+                    $('.carousel').css('transition', 'all 0s')
+                    $('.carousel').css('transform', 'translateY(' + index * (-20) + 'px)')
+                }
+                window.localStorage.setItem('INDEXI', index);
+                window.localStorage.setItem('NUM', num);
+                setTimeout(fun, time)
+            }
+
+            setTimeout(fun, time)
+        }
+
+//添加结束
+
+//倒计时
+ function resetTime(time){
+          var timer=null;
+          var t=time;
+          var m=0;
+          var s=0;
+          m=Math.floor(t/60%60);
+          m<10&&(m='0'+m);
+          s=Math.floor(t%60);
+          function countDown(){
+           s--;
+           s<10&&(s='0'+s);
+           if(s.length>=3){
+            s=59;
+            m="0"+(Number(m)-1);
+           }
+           if(m.length>=3){
+            m='00';
+            s='00';
+            clearInterval(timer);
+           }
+           $("#setTime").html("马上报名&nbsp;&nbsp;("+m+":"+s+")");
+           // console.log(m+"分钟"+s+"秒");
+          }
+          timer=setInterval(countDown,1000);
+        }
+    //  resetTime(540);
+//倒计时结束
+
+// 埋点
+
+
+// shareMai1('0');
+$("#zutuan").click(function(){
+    // shareMai1('3');
+    buttons('1');
+})
+$("#fanxian").click(function(){
+    buttons('2');
+    // shareMai1('4');
+})
+$("#chakan").click(function(){
+    buttons('3');
+    // shareMai1('5');
+})
+$("#setTime").click(function(){
+    buttons('4');
+    // shareMai1('6');
+})
+
+
+// 埋点完
+
+
+</script>
+</html>

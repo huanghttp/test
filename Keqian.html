@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!-- <title>邀请你一起参加12天小白理财训练营.你和富人之间，只差一个训练营</title> -->
+    <title>课外读物</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing:border-box;
+        }
+        a{
+            position: relative;
+            color: #333;
+            text-decoration: none;
+        }
+        .wrap {
+            width: 100%;
+            height:100vh;
+            margin: 0 auto;
+            position: relative;
+            min-width: 320px;
+            max-width: 640px;
+            /* padding-bottom: 2.56rem; */
+            background-color:#fff;
+        }
+        .header{
+            width: 100%;
+            height: 2.048rem;
+            background-color: #eee;
+            border-bottom:1px solid #e1e1e1;
+            display: flex;
+            font-size:0.683rem;
+            line-height: 2.13rem;
+            justify-content:space-around;
+        }
+        .line{
+            position: absolute;
+            left:50%;
+            transform: translateX(-50%);
+            bottom:0px;
+            width:2.517rem;
+            height:0.192rem;
+        }
+
+        .xiaogou img{
+            display: block;
+            width:11.434rem;
+            height:15.146rem;
+            margin: 0 auto;
+            margin-top:2rem;
+        }
+        .money{
+            cursor: pointer;
+            font-size:0.853rem;
+            width:11.093rem;
+            height:1.92rem;
+            text-align: center;
+            line-height:1.92rem;
+            margin: 0 auto;
+            background-color:#3F76FF;
+            border-radius:1.173rem;
+            color:#fff;
+            font-size:0.853rem;
+            margin-top:1.578rem;
+            padding-bottom: 0.299rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <a href="./Qungui.html"><p >群规必看</p></a>
+            <a href="./tingke.html"><p>听课方式</p></a>
+            <a href="./Keqian.html"><p class="active">课外读物</p><img class="line" src="./images/line1.png"></a>
+        </div>
+        <div class="xiaogou">
+            <!-- <img src="./images/xiaogouqianqian.png" alt=""> -->
+            <!-- <p class="dog">《小狗钱钱》</p> -->
+			<a><img src="./images/xiaogouimg.png" alt=""></a>
+            <a href="https://mp.weixin.qq.com/s/SwVPFIUeMD7FZRPX7vG_uw"><p class="money">去听书</p></a>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+        (function(){
+            var width = document.documentElement.clientWidth;
+            var styleN = document.createElement('style');
+            styleN.innerHTML = 'html{font-size: '+ width/16 +'px !important;}';
+            document.head.appendChild(styleN);
+        })();
+
+    </script>
+</html>

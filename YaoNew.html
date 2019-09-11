@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <title style="text-align: center;">送你5元红包！和我一起来学习理财入门知识！</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #fd7561;
+        }
+
+        .wrap {
+            width: 100%;
+            /*height: 25.728rem;*/
+            margin: 0 auto;
+            position: relative;
+            min-width: 320px;
+            max-width: 640px;
+            background-image: url("./images/yaoqingB1-bg.jpg");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            padding-top: 40px;
+            padding-bottom: 5px;
+        }
+
+        /*图片更改------------*/
+        .yaoqing_one {
+            width: 282px;
+            height: 161px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .yaoqing_fangshi {
+            width: 301px;
+            height: 62px;
+            display: block;
+            margin: 0 auto;
+            margin-top: 26px;
+        }
+
+        .yaoqing_one2 {
+            width: 282px;
+            height: 74px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .lunxunwrap {
+            width: 100%;
+            height: 62px;
+            position: relative;
+        }
+
+        /*图片更改------------*/
+        .yaoqing_btn {
+            /* position: absolute;
+             top:13rem;
+             left: 50%;
+             margin-left: -5.76rem;*/
+            width: 10.752rem;
+            margin: 0 auto;
+            margin-top: 1.109rem;
+        }
+
+        .yaoqing_btn img {
+            display: block;
+            width: 11.136rem;
+            margin-top: 2rem;
+        }
+
+        .yaoqing_btn p {
+            font-size: 0.469rem;
+            font-family: PingFangSC-Medium, sans-serif;
+            color: #fff;
+            text-align: center;
+            margin-top: 0.22rem;
+            letter-spacing: 1px;
+        }
+
+        /*弹出规则页面*/
+        .mask {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.69);
+        }
+
+        .rule_bg {
+            position: relative;
+
+            width: 14.55rem;
+            height: 20.672rem;
+            background-image: url("./images/rule-bg.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            margin: 2.133rem auto;
+            padding: 2rem 1.621rem 0px 1.621rem;
+            box-sizing: border-box;
+            margin-left: 1.07rem;
+        }
+
+        /*.rule_bg p{
+            margin-top:0.853rem;
+            line-height: 0.853rem;
+        }*/
+        .rule_bg div {
+            position: relative;
+            width: 4.053rem;
+            height: 4.31rem;
+            margin: 0 auto;
+        }
+
+        .rule_bg .rulebtn {
+            width: 6.656rem;
+            display: block;
+            margin: 0 auto;
+            margin-top: 4.3rem;
+        }
+
+        .xiaorui {
+            /*position: absolute;
+            left: 50%;
+            margin-left: -2rem;*/
+            width: 4.053rem;
+            margin-top: 0.3rem;
+
+        }
+
+        .bold {
+            font-size: 0.469rem;
+            margin-top: 0.65rem;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-weight: bold;
+        }
+
+        .normal {
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.469rem;
+            color: #292926;
+            margin-top: 0.256rem;
+            line-height: 0.8rem;
+        }
+
+        .shijian {
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.427rem;
+            color: #f74521;
+            text-align: center;
+            margin-top: 0.4rem;
+        }
+
+        .btn1 {
+            width: 10.752rem;
+            height: 46px;
+
+        }
+
+        /*改*/
+        /*.lunxun_wrap{
+            width: 100%;
+            height: 23px;
+            background-color: #ccc;
+            position: relative;
+        }*/
+        .lunxun {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-block;
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.426rem;
+            width: 10.5rem;
+            height: 23px;
+            border-radius: 0.87rem;
+            text-align: center;
+            line-height: 23px;
+            background: rgba(0, 0, 0, 0.3);
+            vertical-align: middle;
+            color: #fff;
+        }
+
+        /*改完*/
+        .bottom {
+            width: 14.592rem;
+            /*position: absolute;
+            top: 20.3rem;
+            left: 50%;
+            margin-left: -7.296rem;*/
+            margin: 0 auto;
+            margin-top: 22px;
+        }
+
+        .bottom_t {
+            width: 100%;
+            height: 39px;
+            background-color: #ff3a10;
+            padding: 0.555rem 0.384rem;
+            box-sizing: border-box;
+            border-top-right-radius: 0.213rem;
+            border-top-left-radius: 0.213rem;
+        }
+
+        .bottom_t p {
+            /*font-family: PingFangSC-Semibold, sans-serif;
+            font-size: 0.555rem;*/
+            color: #fff;
+        }
+
+        .jiangjin {
+            float: left;
+            font-family: PingFangSC-Semibold, sans-serif;
+            font-size: 0.555rem;
+
+        }
+
+        .guize {
+            float: right;
+            font-family: PingFangSC-Medium, sans-serif;
+            font-size: 11px;
+            cursor: pointer
+        }
+
+        .guize img {
+            width: 0.299rem;
+            height: 0.426rem;
+            vertical-align: middle;
+            margin-left: 0.213rem;
+        }
+
+        .bottom_b {
+            width: 100%;
+            height: 3.2rem;
+            background-color: #fff;
+            padding: 0.64rem 0px;
+            box-sizing: border-box;
+            border-bottom-right-radius: 0.213rem;
+            border-bottom-left-radius: 0.213rem;
+            /*text-align: center;*/
+        }
+
+        .bottom_b div {
+            width: 4.779rem;
+            float: left;
+        }
+
+        .shuliang {
+            font-family: PingFangSC-Semibold, sans-serif;
+            font-size: 0.555rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .shuliang span {
+            font-family: PingFangSC-Semibold, sans-serif;
+            font-size: 1.152rem;
+            color: #000;
+            text-align: center;
+        }
+
+        .mingcheng {
+            font-family: PingFangSC-Regular, sans-serif;
+            font-size: 0.426rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .border {
+            border-right: 1px solid #bfbfbf;
+            border-left: 1px solid #bfbfbf;
+        }
+
+        .guanbi {
+            width: 0.896rem;
+            height: 0.896rem;
+            position: absolute;
+            top: 7px;
+            right: 26px;
+
+        }
+
+        .youshangjiao {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.88);
+            z-index: 10;
+        }
+
+        .youshangjiao .tishi {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /*height: 100%;*/
+            display: block;
+
+        }
+
+        .zhidao {
+            position: absolute;
+            top: 19.37rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6.187rem;
+            /*height: 100%;*/
+            display: block;
+        }
+
+    </style>
+</head>
+<!--引入分享文件-->
+<!--    <script>
+window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb4bc18fe3dbcf257&redirect_uri=http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/YaoNew?type=1005%26id=0&response_type=code&scope=snsapi_userinfo";
+</script>-->
+<body>
+<div class="wrap">
+    <img class="yaoqing_one" src="./images/yaoqing-one5yuan.png" alt="">
+    <div class="lunxunwrap">
+        <img class="yaoqing_one2" src="./images/yaoqing-one5yuan2.png" alt="">
+        <div class="lunxun" style="height:23px;overflow:hidden;">
+            <div class="carousel">
+                <p>啦*咯 有7位好友报名，提现 35 元现金！</p>
+                <p>微*笑 有10位好友报名，提现 50 元现金！</p>
+                <p>龙*g 有12位好友报名，提现 60 元现金！</p>
+                <p>陈*冬 有11位好友报名，提现 55 元现金！</p>
+                <p>吼*1 有14位好友报名，提现 70 元现金！</p>
+                <p>会*子 有10位好友报名，提现 50 元现金！</p>
+                <p>a*a 有8位好友报名，提现 40 元现金！</p>
+                <p>侠*侠 有9位好友报名，提现 45 元现金！</p>
+                <p>德*曾 有8位好友报名，提现 40 元现金！</p>
+                <p>L*u 有15位好友报名，提现 75 元现金！</p>
+                <p>A*4 有8位好友报名，提现 40 元现金！</p>
+                <p>B*an 有12位好友报名，提现 60 元现金！</p>
+                <p>M*ng 有10位好友报名，提现 50 元现金！</p>
+                <p>良*我 有22位好友报名，提现 110 元现金！</p>
+                <p>黄*火 有8位好友报名，提现 40 元现金！</p>
+                <p>^*^ 有10位好友报名，提现 50 元现金！</p>
+                <p>三*火 有7位好友报名，提现 35 元现金！</p>
+                <p>天*券 有13位好友报名，提现 65 元现金！</p>
+                <p>Z*Z 有5位好友报名，提现 25 元现金！</p>
+                <p>忆*。 有8位好友报名，提现 40 元现金！</p>
+                <p>素*美 有10位好友报名，提现 50 元现金！</p>
+                <p>༄*༄ 有5位好友报名，提现 25 元现金！</p>
+                <p>微*帅 有6位好友报名，提现 30 元现金！</p>
+                <p>S*t 有14位好友报名，提现 70 元现金！</p>
+                <p>｛*ゞ 有6位好友报名，提现 30 元现金！</p>
+                <p>米*路 有12位好友报名，提现 60 元现金！</p>
+                <p>王*林 有13位好友报名，提现 65 元现金！</p>
+                <p>s*y 有6位好友报名，提现 30 元现金！</p>
+                <p>芮*奇 有12位好友报名，提现 60 元现金！</p>
+                <p>星*语 有12位好友报名，提现 60 元现金！</p>
+                <p>O*E 有10位好友报名，提现 50 元现金！</p>
+                <p>梁*】 有8位好友报名，提现 40 元现金！</p>
+                <p>1*3 有12位好友报名，提现 60 元现金！</p>
+                <p>上*善 有11位好友报名，提现 55 元现金！</p>
+                <p>黄*敬 有5位好友报名，提现 25 元现金！</p>
+                <p>z*j 有18位好友报名，提现 90 元现金！</p>
+                <p>旅*川 有18位好友报名，提现 90 元现金！</p>
+                <p>刘*斌 有9位好友报名，提现 45 元现金！</p>
+                <p>n*c 有5位好友报名，提现 25 元现金！</p>
+                <p>P*' 有10位好友报名，提现 50 元现金！</p>
+                <p>A*บ 有6位好友报名，提现 30 元现金！</p>
+                <p>胖*胖 有13位好友报名，提现 65 元现金！</p>
+                <p>魏*国 有9位好友报名，提现 45 元现金！</p>
+                <p>合*0 有13位好友报名，提现 65 元现金！</p>
+                <p>A*李 有10位好友报名，提现 50 元现金！</p>
+                <p>G*G 有11位好友报名，提现 55 元现金！</p>
+                <p>d*k 有15位好友报名，提现 75 元现金！</p>
+                <p>沁*雪 有7位好友报名，提现 35 元现金！</p>
+                <p>语*然 有13位好友报名，提现 65 元现金！</p>
+                <p>如*燕 有10位好友报名，提现 50 元现金！</p>
+                <p>冰*冰 有8位好友报名，提现 40 元现金！</p>
+                <p>S*c 有13位好友报名，提现 65 元现金！</p>
+                <p>焱*墅 有6位好友报名，提现 30 元现金！</p>
+                <p>綻*華 有8位好友报名，提现 40 元现金！</p>
+                <p>A*李 有6位好友报名，提现 30 元现金！</p>
+                <p>柳*林 有8位好友报名，提现 40 元现金！</p>
+                <p>无*名 有14位好友报名，提现 70 元现金！</p>
+                <p>M*M 有7位好友报名，提现 35 元现金！</p>
+                <p>方*兴 有13位好友报名，提现 65 元现金！</p>
+                <p>真*真 有10位好友报名，提现 50 元现金！</p>
+                <p>I*e 有17位好友报名，提现 85 元现金！</p>
+                <p>A*虫 有10位好友报名，提现 50 元现金！</p>
+                <p>智*活 有12位好友报名，提现 60 元现金！</p>
+                <p>微*笑 有9位好友报名，提现 45 元现金！</p>
+                <p>茅*学 有8位好友报名，提现 40 元现金！</p>
+                <p>花*装 有12位好友报名，提现 60 元现金！</p>
+                <p>无*非 有8位好友报名，提现 40 元现金！</p>
+                <p>斑*泥 有12位好友报名，提现 60 元现金！</p>
+                <p>郭*奇 有6位好友报名，提现 30 元现金！</p>
+                <p>荣*荣 有6位好友报名，提现 30 元现金！</p>
+                <p>彧*暱 有8位好友报名，提现 40 元现金！</p>
+                <p>贾*冰 有9位好友报名，提现 45 元现金！</p>
+                <p>z*l 有10位好友报名，提现 50 元现金！</p>
+                <p>以*家 有13位好友报名，提现 65 元现金！</p>
+                <p>网*青 有5位好友报名，提现 25 元现金！</p>
+                <p>李*静 有13位好友报名，提现 65 元现金！</p>
+                <p>W*o 有13位好友报名，提现 65 元现金！</p>
+                <p>S*e 有8位好友报名，提现 40 元现金！</p>
+                <p>不*人 有11位好友报名，提现 55 元现金！</p>
+                <p>大*子 有6位好友报名，提现 30 元现金！</p>
+                <p>瑞*n 有6位好友报名，提现 30 元现金！</p>
+                <p>S*e 有8位好友报名，提现 40 元现金！</p>
+                <p>痛*痛 有18位好友报名，提现 90 元现金！</p>
+                <p>韶*光 有10位好友报名，提现 50 元现金！</p>
+                <p>全*全 有8位好友报名，提现 40 元现金！</p>
+                <p>许*倩 有13位好友报名，提现 65 元现金！</p>
+                <p>木*理 有12位好友报名，提现 60 元现金！</p>
+                <p>文*杰 有14位好友报名，提现 70 元现金！</p>
+                <p>时*s 有11位好友报名，提现 55 元现金！</p>
+                <p>雨*。 有6位好友报名，提现 30 元现金！</p>
+                <p>欧*也 有12位好友报名，提现 60 元现金！</p>
+                <p>家*乐 有11位好友报名，提现 55 元现金！</p>
+                <p>勤*读 有5位好友报名，提现 25 元现金！</p>
+                <p>姐*来 有7位好友报名，提现 35 元现金！</p>
+                <p>G*＆G 有7位好友报名，提现 35 元现金！</p>
+                <p>真*人 有11位好友报名，提现 55 元现金！</p>
+                <p>T*w 有14位好友报名，提现 70 元现金！</p>
+                <p>爱*丽 有11位好友报名，提现 55 元现金！</p>
+                <p>囧*跑 有11位好友报名，提现 55 元现金！</p>
+                <p>先*知 有12位好友报名，提现 60 元现金！</p>
+                <p>柒*哥 有8位好友报名，提现 40 元现金！</p>
+                <p>星*梦 有11位好友报名，提现 55 元现金！</p>
+                <p>A*路 有10位好友报名，提现 50 元现金！</p>
+                <p>A*辽元 有13位好友报名，提现 65 元现金！</p>
+                <p>一*乐 有6位好友报名，提现 30 元现金！</p>
+                <p>曹*洪 有6位好友报名，提现 30 元现金！</p>
+                <p>半*凉 有15位好友报名，提现 75 元现金！</p>
+                <p>学*飞 有7位好友报名，提现 35 元现金！</p>
+                <p>w*o 有8位好友报名，提现 40 元现金！</p>
+                <p>T*E 有12位好友报名，提现 60 元现金！</p>
+                <p>华*胜 有6位好友报名，提现 30 元现金！</p>
+                <p>ふ*₉ 有11位好友报名，提现 55 元现金！</p>
+                <p>s*n 有10位好友报名，提现 50 元现金！</p>
+                <p>来*歪 有7位好友报名，提现 35 元现金！</p>
+                <p>张*張 有6位好友报名，提现 30 元现金！</p>
+                <p>有*奈 有8位好友报名，提现 40 元现金！</p>
+                <p>玲*瑄 有9位好友报名，提现 45 元现金！</p>
+                <p>语*渣 有13位好友报名，提现 65 元现金！</p>
+                <p>D*许亮 有8位好友报名，提现 40 元现金！</p>
+                <p>漫*洋 有10位好友报名，提现 50 元现金！</p>
+                <p>周*刚 有10位好友报名，提现 50 元现金！</p>
+                <p>璐*G 有5位好友报名，提现 25 元现金！</p>
+                <p>余*雯 有12位好友报名，提现 60 元现金！</p>
+                <p>袁*民 有8位好友报名，提现 40 元现金！</p>
+                <p>李*凡 有8位好友报名，提现 40 元现金！</p>
+                <p>人*义 有11位好友报名，提现 55 元现金！</p>
+                <p>P*r 有8位好友报名，提现 40 元现金！</p>
+                <p>_*o 有10位好友报名，提现 50 元现金！</p>
+                <p>小*张 有12位好友报名，提现 60 元现金！</p>
+                <p>大*海 有14位好友报名，提现 70 元现金！</p>
+                <p>许*2 有10位好友报名，提现 50 元现金！</p>
+                <p>微*院 有12位好友报名，提现 60 元现金！</p>
+                <p>懂*你 有11位好友报名，提现 55 元现金！</p>
+                <p>淡*丶 有13位好友报名，提现 65 元现金！</p>
+                <p>。*。 有11位好友报名，提现 55 元现金！</p>
+                <p>理*想 有10位好友报名，提现 50 元现金！</p>
+                <p>꯭*꯭ 有6位好友报名，提现 30 元现金！</p>
+                <p>L*、 有10位好友报名，提现 50 元现金！</p>
+                <p>峰*峰 有8位好友报名，提现 40 元现金！</p>
+                <p>咫*涯 有13位好友报名，提现 65 元现金！</p>
+                <p>佳*乐 有10位好友报名，提现 50 元现金！</p>
+                <p>临*4 有8位好友报名，提现 40 元现金！</p>
+                <p>艳*艳 有12位好友报名，提现 60 元现金！</p>
+                <p>M*喵 有9位好友报名，提现 45 元现金！</p>
+                <p>明*奕 有5位好友报名，提现 25 元现金！</p>
+                <p>刘*博 有7位好友报名，提现 35 元现金！</p>
+                <p>圆*现 有10位好友报名，提现 50 元现金！</p>
+                <p>春*开 有13位好友报名，提现 65 元现金！</p>
+                <p>b*6 有9位好友报名，提现 45 元现金！</p>
+                <p>瑞*亚 有9位好友报名，提现 45 元现金！</p>
+                <p>一*光 有17位好友报名，提现 85 元现金！</p>
+                <p>你*的 有8位好友报名，提现 40 元现金！</p>
+                <p>飞*哥 有11位好友报名，提现 55 元现金！</p>
+                <p>佩*姐 有15位好友报名，提现 75 元现金！</p>
+                <p>(*Z 有8位好友报名，提现 40 元现金！</p>
+                <p>a*巴 有7位好友报名，提现 35 元现金！</p>
+                <p>A*子 有10位好友报名，提现 50 元现金！</p>
+                <p>(*子 有9位好友报名，提现 45 元现金！</p>
+                <p>专*6 有8位好友报名，提现 40 元现金！</p>
+                <p>伊*鹏 有10位好友报名，提现 50 元现金！</p>
+                <p>时*迫 有13位好友报名，提现 65 元现金！</p>
+                <p>奥*妈 有9位好友报名，提现 45 元现金！</p>
+                <p>Y*e 有10位好友报名，提现 50 元现金！</p>
+                <p>李*卫 有12位好友报名，提现 60 元现金！</p>
+                <p>C*N 有9位好友报名，提现 45 元现金！</p>
+                <p>王*双 有10位好友报名，提现 50 元现金！</p>
+                <p>杨*亚 有6位好友报名，提现 30 元现金！</p>
+                <p>煊*竣 有17位好友报名，提现 85 元现金！</p>
+                <p>X*U 有5位好友报名，提现 25 元现金！</p>
+                <p>呆*狮 有17位好友报名，提现 85 元现金！</p>
+                <p>海*金 有10位好友报名，提现 50 元现金！</p>
+                <p>徐*凯 有10位好友报名，提现 50 元现金！</p>
+                <p>W*9 有8位好友报名，提现 40 元现金！</p>
+                <p>南*鱼 有8位好友报名，提现 40 元现金！</p>
+                <p>雨*珠 有12位好友报名，提现 60 元现金！</p>
+                <p>小*i 有13位好友报名，提现 65 元现金！</p>
+                <p>董*清 有7位好友报名，提现 35 元现金！</p>
+                <p>莹*姐 有10位好友报名，提现 50 元现金！</p>
+                <p>陆*祥 有18位好友报名，提现 90 元现金！</p>
+                <p>可*乐 有8位好友报名，提现 40 元现金！</p>
+                <p>十*姨 有17位好友报名，提现 85 元现金！</p>
+                <p>小*弟 有13位好友报名，提现 65 元现金！</p>
+                <p>一*云 有12位好友报名，提现 60 元现金！</p>
+                <p>温*度 有6位好友报名，提现 30 元现金！</p>
+                <p>艾*文 有11位好友报名，提现 55 元现金！</p>
+                <p>万*4 有17位好友报名，提现 85 元现金！</p>
+                <p>杜*冲 有8位好友报名，提现 40 元现金！</p>
+                <p>美*颂 有14位好友报名，提现 70 元现金！</p>
+                <p>Y*an 有12位好友报名，提现 60 元现金！</p>
+                <p>m*x 有10位好友报名，提现 50 元现金！</p>
+                <p>疯*人 有12位好友报名，提现 60 元现金！</p>
+                <p>F*e 有9位好友报名，提现 45 元现金！</p>
+                <p>连*3 有10位好友报名，提现 50 元现金！</p>
+                <p>微*笑 有6位好友报名，提现 30 元现金！</p>
+                <p>鹏*仔 有10位好友报名，提现 50 元现金！</p>
+                <p>l*娅 有13位好友报名，提现 65 元现金！</p>
+                <p>F*k 有10位好友报名，提现 50 元现金！</p>
+                <p>迷*知 有11位好友报名，提现 55 元现金！</p>
+                <p>小*玉 有14位好友报名，提现 70 元现金！</p>
+                <p>陌* 有13位好友报名，提现 65 元现金！</p>
+                <p>阿*荣 有11位好友报名，提现 55 元现金！</p>
+                <p>美*佳 有10位好友报名，提现 50 元现金！</p>
+                <p>唯*美 有8位好友报名，提现 40 元现金！</p>
+                <p>S*y 有9位好友报名，提现 45 元现金！</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="yaoqing_btn">
+        <a class="btn1"><img src="./images/yaoqing-btn1.23.png" alt=""></a>
+        <!--  <a class="btn1" href="hongbao1.html"><img  src="测试修改4.22/haibaoxia.png" alt=""></a> -->
+    </div>
+    <img class="yaoqing_fangshi" src="./images/yaoqing-buzhou.png" alt="">
+    <div class="bottom">
+        <div class="bottom_t"><p class="jiangjin">我的奖金</p>
+            <p class="guize" onclick="show(1)">活动规则<img src="./images/yaoqing-jiantou.png" alt=""></p></div>
+        <div class="bottom_b">
+            <div class="bottom_b_dv">
+                <p class="shuliang"><span>0</span>元</p>
+                <p class="mingcheng">可获现金</p>
+            </div>
+            <div class="bottom_b_dv border">
+                <p class="shuliang"><span>0</span>元</p>
+                <p class="mingcheng">已发现金</p>
+            </div>
+            <div class="bottom_b_dv">
+                <p class="shuliang"><span></span>人</p>
+                <p class="mingcheng">累计邀请</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="mask">
+    <div class="rule_bg">
+        <a onclick="show(2)"><img class="guanbi" src="./images/rule-guanbi.png" alt=""></a>
+        <p class="bold">如何参与？</p>
+        <p class="normal">1.只有报名过「12天小白理财训练营」的用户才可参与送红包的活动。</p>
+        <p class="normal">2.符合要求的用户，点击活动页面上的【立即免费发红包】按钮，按页面提示分享链接即可。</p>
+        <p class="bold">如何获得红包？</p>
+        <p class="normal">好友通过你的链接进入页面即可领取5元红包，好友领取后报名，你可得5元红包。</p>
+        <p class="bold">红包什么时候到账？</p>
+        <p class="normal">好友报名后，5分钟内自动通过公众号发送给你。</p>
+        <div>
+            <img class="xiaorui" src="./images/rule-fuwuhao.png" alt="">
+        </div>
+        <p class="shijian">如有问题可公众号留言</p>
+        <a onclick="show(2)"><img class="rulebtn" src="./images/rule-btn1.png" alt=""></a>
+
+    </div>
+</div>
+<div class="youshangjiao">
+    <img class="tishi" src="./images/yao-tishi.png" alt="">
+    <img class="zhidao" src="./images/yao-zhidao.png" alt="">
+</div>
+<!-- ------------------------ -->
+<input type="text" id="userId" value="" style="display:none;">
+<input type="text" id="typeId" value="1005" style="display:none;">
+<input type="text" id="pag" value="500" style="display:none;">
+<!--引入按钮埋点文件-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <title></title>
+
+</head>
+
+<body>
+
+</body>
+<!--<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>-->
+<script src="./js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+    var userId = $("#userId").val();
+    var typeId = $("#typeId").val();
+    var pag = $("#pag").val();
+
+    function buttons(x) {
+        var databuttons = JSON.stringify({'uid': userId, 'channel': typeId, 'pag': pag, 'buttons': x});
+        console.log(databuttons);
+
+        $.ajax({
+            type: "POST",    // 请求类型
+            dataType: "json",    // 数据返回类型
+            url: "http://39.104.178.151:8082/databutton/databutton/databuttons",
+            // 请求URL
+            data: databuttons,
+            // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+            contentType: 'application/json;charset=UTF-8',
+            success: function (data) {    // 成功返回的结果(响应)
+                console.log(data);
+            }
+        });
+    }
+
+
+</script>
+<!--引入埋点文件-->
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title> </title>
+    
+</head>
+
+<body>    
+   
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="./groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"> 
+
+var userId = $("#userId").val();
+var typeId = $("#typeId").val();
+var pag = $("#pag").val();
+
+var datapagesComeIn = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag});
+console.log(datapagesComeIn);
+
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.178.151:8082/datapage/datapage/datapages",    // 请求URL
+        data:datapagesComeIn,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+
+
+</script>
+&lt;!&ndash;引入埋点文件&ndash;&gt;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title> </title>
+    
+</head>
+
+<body>    
+   
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="./groupBuy/img/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"> 
+
+var userId = $("#userId").val();
+var typeId = $("#typeId").val();
+var pag = $("#pag").val();
+
+
+// 分享
+
+ function WeChat(url,title,img,desc){
+    $.get("/index.php/Home/Index/Test.html",{url:window.location.href},function(data) {
+            var res =  JSON.parse( data );
+
+
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: res.appId, // 必填，公众号的唯一标识
+            timestamp: res.timestamp, // 必填，生成签名的时间戳
+            nonceStr: res.nonceStr, // 必填，生成签名的随机串
+            signature:res.signature,// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']// 必填，需要使用的JS接口列表
+        });
+
+    });
+
+    wx.ready(function () {
+        // alert(desc);
+        //转发给朋友
+        wx.onMenuShareAppMessage({
+            title: title,
+            desc: desc,
+            link: url,
+            imgUrl: img,
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+                ////console.log('转发成功');
+               
+               shareFriend('1');
+            },
+            cancel: function () {
+                ////console.log('转发失败');
+            }
+        });
+        wx.onMenuShareTimeline({
+            // alert(title);
+            title: title, // 分享标题
+            link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: img, // 分享图标
+            success: function () {
+            // 用户点击了分享后执行的回调函数
+            
+                shareFriend('2');
+            }
+        });
+    });
+}
+// WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006&id=","","http://xiaobai.yaocaiwuziyou.com/Site/weimiaoLOGO.jpg","微淼商学院");
+WeChat("http://xiaobai.yaocaiwuziyou.com/index.php/Home/Index/Xiaobai?type=1006&id=","","http://xiaobai.yaocaiwuziyou.com/Site/yaoqing.png","你不理财，财不理你");
+
+
+function shareFriend(x){
+    console.log(x);
+    var datashares = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag,'share':x});
+console.log(datashares);
+
+    $.ajax({
+        type:"POST",    // 请求类型
+        dataType:"json",    // 数据返回类型
+        url:"http://39.104.178.151:8082/datashare/datashare/datashares",    // 请求URL
+        data:datashares,
+        // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+        contentType: 'application/json;charset=UTF-8',
+        success:function(data){    // 成功返回的结果(响应)
+            console.log(data);
+        }
+    });
+
+}
+
+</script>
+
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
+<script src="./js/jquery-1.11.1.min.js"></script>-->
+<script>
+    (function () {
+        var width = document.documentElement.clientWidth;
+        var styleN = document.createElement('style');
+        styleN.innerHTML = 'html{font-size: ' + width / 16 + 'px !important;}';
+        document.head.appendChild(styleN);
+    })();
+
+
+    // var userId = $("#userId").val();
+    // var typeId = $("#typeId").val();
+    // var pag = $("#pag").val();
+
+    /*
+    ABYao('0','0');
+    // AB测试的邀请页面需要得埋点有：进入页面uv  分享按钮  邀请人数（这个后台查）
+    function ABYao(x,y){
+        var comeIn = JSON.stringify({'uid':userId,'qudao':typeId,'pag':'Yao','fenxiang':x,'fenxiang1':y});
+        console.log(comeIn);
+
+        $.ajax({
+            type:"POST",    // 请求类型
+            dataType:"json",    // 数据返回类型
+            url:"http://39.104.52.189:8082/baizong/baizong/wxcat",    // 请求URL
+            data:comeIn,
+            // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+            contentType: 'application/json;charset=UTF-8',
+            success:function(data){    // 成功返回的结果(响应)
+                console.log(data);
+            }
+        });
+
+    }
+
+            function show(x){
+                if (x===1) {
+                    $(".mask").show();
+                }else{
+                    $(".mask").hide();
+                }
+            }
+            // function zhe(x){
+            //     if (x===1) {
+            //         $(".youshangjiao").show();
+            //          // console.log("1111");
+            //          buttons('1');
+
+            //     }else{
+            //        $(".youshangjiao").hide();
+            //     }
+
+            // }
+    $(".btn1").click(function(){
+        buttons('1');
+        var userId = $("#userId").val();
+        var typeId = $("#typeId").val();
+        var pag = $("#pag").val();
+        $(".youshangjiao").show();
+        var databutton = JSON.stringify({'uid':userId,'channel':typeId,'pag':pag,'buttons':'1'});
+        console.log(databutton);
+
+        $.ajax({
+            type:"POST",    // 请求类型
+            dataType:"json",    // 数据返回类型
+            url:"http://39.104.52.189:8082/databutton/databutton/databuttons",
+            // 请求URL
+            data:databutton,
+            // 在没有域名的情况下，需要标注一下是json格式，否则无法识别
+            contentType: 'application/json;charset=UTF-8',
+            success:function(data){    // 成功返回的结果(响应)
+                console.log(data);
+            }
+        });
+        // setTimeout(function(){
+        //     buttons('1');
+        // },3000)
+
+    })
+    $(".zhidao").click(function(){
+        $(".youshangjiao").hide();
+
+    })*/
+
+    window.onload = function () {
+
+        let uw = $('.carousel').innerHeight()
+        // let time = (Math.random() * (5000 - 1000 + 1) + 1000).toFixed(0)
+        let time = 3000
+        let len = $('.carousel>p').length;
+        let index = window.localStorage.getItem('INDEX') || 1;
+        // let num = window.localStorage.getItem('NUM') || 200;
+        // $('.span3').html(num)
+        $('.carousel').css('transform', 'translateY(' + index * (-23) + 'px)')
+
+        function fun() {
+            // time = (Math.random() * (5000 - 1000 + 1) + 1000).toFixed(0)
+            time = 3000
+            if (index < len - 1) {
+                index++;
+                $('.carousel').css('transition', 'all 1s')
+                $('.carousel').css('transform', 'translateY(' + index * (-23) + 'px)')
+                // if (num > 5) {
+                //     num--
+                // }
+                // $('.span3').html(num)
+            }
+            if (index == len - 1) {
+                // num++
+                time = 0
+                index = 0;
+                $('.carousel').css('transition', 'all 0s')
+                $('.carousel').css('transform', 'translateY(' + index * (-23) + 'px)')
+            }
+            window.localStorage.setItem('INDEX', index);
+            // window.localStorage.setItem('NUM', num);
+            setTimeout(fun, time)
+        }
+
+        setTimeout(fun, time)
+    }
+
+</script>
+</html>
