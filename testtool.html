@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>数据处理小工具</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--bootstrap-table-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+        #csvFileInput {
+            /*position: absolute;*/
+            display: inline-block;
+            max-width: 1px;
+            right: 0px;
+            opacity: 0;
+        }
+    </style>
+
+</head>
+<body style="background: #eef4f9">
+
+<div class="container-fluid">
+
+    <div class="loading" style="display: none">
+        <div class="loading_anim"
+             style="color: #eee;position: fixed;left: 50%;top: 50%;z-index: 1999;margin: -2.5rem 0 0 -2.5rem;">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <p>Loading...</p>
+        </div>
+        <div class="loading_bg"
+             style=" background-color: #000000;opacity: 0.6;width: 100%;height: 100%;position: fixed;left: 0;top: 0;z-index: 1998;margin: 0 0;"></div>
+    </div>
+
+    <div class="" style="margin: 20px;text-align: center">
+        <!-- 创建隐藏file input -->
+        <button type="button" class="btn btn-primary" onclick="FuncCSVInport()">导入CSV文件</button>
+        <button type="button" class="btn btn-primary" onclick="processData()">处理数据</button>
+        <button type="button" class="btn btn-primary" onclick="saveCSV()">保存数据</button>
+        <input id="file_name_input" placeholder="请输入保存文件名" style="max-width: 150px;display: inline-block;"
+               class="form-control">
+        <input type="file" id="csvFileInput" onchange="readCSVFile(this)"/>
+    </div>
+
+    <div class="" style="margin: 10px">
+
+        <!--<div class="table_div table-responsive">-->
+        <!--表格-->
+        <table class="mytable">
+
+        </table>
+        <!--</div>-->
+    </div>
+
+
+</div>
+
+<!--<script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>-->
+<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!--<script src="http://libs.baidu.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<!--<script src="https://cdn.bootcss.com/TableExport/5.2.0/js/tableexport.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/xlsx/0.8.4/xlsx.core.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/extensions/export/bootstrap-table-export.min.js"></script>-->
+
+<script>
+
+    var data;
+
+    $(document).ready(function () {
+
+        $(".mytable").bootstrapTable({
+            cache: false,//禁用ajax缓存
+            // height: 900,
+            striped: true,//表格显示条纹
+            pagination: true,//在底部显示分页组件
+            pageSize: 50, // 页面数据条数
+            pageNumber: 1,// 首页页码
+            pageList: [50, 100, 150, 300],//设置页面可以显示的数据条数
+            sidePagination: 'client',// 设置为client端分页
+            search: true,
+            sortable: false,//是否启用排序
+            showColumns: false,//隐藏和显示某列控件
+            showRefresh: false,
+            showExport: false,  //是否显示导出按钮
+            exportTypes: ['csv', 'txt', 'xml'],
+            exportDataType: "all",  //basic', 'all', 'selected'.
+            clickToSelect: true,
+            searchText: "",
+            // queryParams: oTableInit.queryParams,  //传递参数（*）
+            columns:
+                [
+                    {field: "Target_Name", title: "Target_Name", align: "center", valign: "middle",},
+                    {field: "Indication", title: "Indication", align: "center", valign: "middle",},
+                    {field: "gene name", title: "gene name", align: "center", valign: "middle",},
+                    {field: "uniprot", title: "uniprot", align: "center", valign: "middle",},
+                    {field: "database", title: "database", align: "center", valign: "middle",},
+                ],
+        });
+
+        alert("注意：csv文件中不能带有英文逗号(,)");
+    });
+
+    //添加bootstrap-table里的行
+    function addTableRow(rowData) {
+        $('.mytable').bootstrapTable('append', rowData);
+    }
+
+    function csvToObject(csvString) {
+        var csvarry = csvString.split("\r\n");
+        var datas = [];
+        var headers = csvarry[0].split(",");
+        for (var i = 1; i < csvarry.length; i++) {
+
+            if (csvarry[i].trim() == '') {
+                console.log(i + "行为空，跳过");
+                continue;
+            }
+            var data = {};
+            var temp = csvarry[i].split(",");
+            for (var j = 0; j < temp.length; j++) {
+                data[headers[j]] = temp[j];
+            }
+            datas.push(data);
+
+            addTableRow(data);
+        }
+        return datas;
+    }
+
+    function FuncCSVInport() {
+        $("#csvFileInput").val("");
+        $("#csvFileInput").click();
+    }
+
+    function readCSVFile(obj) {
+        $(".loading").css("display", "block");
+        $('.mytable').bootstrapTable("removeAll");
+
+        setTimeout(function () {
+            var reader = new FileReader();
+            reader.readAsText(obj.files[0]);
+            if (typeof reader == 'undefined') {
+                $(".loading").css("display", "none");
+                alert("您的浏览器暂不支持该功能");
+                return;
+            }
+            var fileName = obj.files[0].name;
+            var pointIndex = fileName.lastIndexOf(".");
+            var fileSuffix = fileName.substr(pointIndex);
+            console.log("fileName=" + fileName + ";fileSuffix=" + fileSuffix);
+            if (fileSuffix == ".CSV" || fileSuffix == ".csv") {
+                reader.onload = function () {
+                    // var data = csvToObject(this.result);
+                    data = csvToObject(this.result);
+                    // console.log(data);//data为csv转换后的对象
+                    // console.log(JSON.stringify(data));//data为csv转换后的对象
+                };
+            } else {
+                $(".loading").css("display", "none");
+                alert("请选择csv文件！");
+            }
+            $(".loading").css("display", "none");
+            setTimeout(function () {
+                alert("导入csv文件成功!\n(接下来点击处理数据按钮)");
+            }, 100);
+        }, 100);
+    }
+
+    function processData() {
+
+        if (data == undefined) {
+            alert('请先导入csv文件！');
+            return;
+        }
+
+        $(".loading").css("display", "block");
+        $('.mytable').bootstrapTable("removeAll");
+
+        setTimeout(function () {
+            for (let i = 0; i < data.length; i++) {
+                for (let j = data.length - 1; j > i; j--) {
+                    if (data[i].uniprot == data[j].uniprot) {
+                        data[i].database = data[i].database + "/" + data[j].database;
+                        // console.log("检查,相同 j=" + j + "; " + data[j].uniprot);
+                        data.splice(j, 1);
+                    } else {
+                        // console.log("检查,不同 j=" + j + "; " + data[j].uniprot);
+                    }
+                }
+                addTableRow(data[i]);
+                // console.log(i + "数据=" + JSON.stringify(data[i]));
+            }
+            $(".loading").css("display", "none");
+            // console.log(JSON.stringify(data));
+            setTimeout(function () {
+                alert("处理数据成功，请检查!\n(如果没问题，可以点击保存按钮)");
+            }, 100);
+        }, 100);
+    }
+
+
+    function saveCSV() {
+        if (data != undefined) {
+            var tempName = $('#file_name_input').val();
+            JSONToCSVConvertor(data, tempName, true);
+        } else {
+            alert('请先导入csv文件！');
+        }
+    }
+
+
+    function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+        //  If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+        const arrData = typeof JSONData !== 'object' ? JSON.parse(JSONData) : JSONData;
+        let CSV = '';
+        // Set Report title in first row or line
+
+        // CSV += `${ReportTitle}\r\n\n`
+
+// This condition will generate the Label/Header
+        if (ShowLabel) {
+            let row = '';
+            // This loop will extract the label from 1st index of on array
+            for (let index in arrData[0]) {
+                // Now convert each value to string and comma-seprated
+                // row += `${index},`
+                row += index + ',';
+                // console.log(index);        //键名
+                // console.log(data[0][index]);   //键值
+            }
+            // row = row.slice(0, -1);
+            row = row.substr(0, row.length - 1);
+            // append Label row with line break
+            // CSV += `${row}\r\n`
+            CSV += row + '\r\n';
+        }
+// 1st loop is to extract each row
+        for (let i = 0; i < arrData.length; i++) {
+            let row = '';
+            // 2nd loop will extract each column and convert it in string comma-seprated
+            for (let index in arrData[i]) {
+                // row += `${arrData[i][index]},`
+                row += data[i][index] + ',';
+            }
+
+            // row.slice(0, row.length - 1);
+            row = row.substr(0, row.length - 1);
+            // add a line break after each row
+            // CSV += `${row}\r\n`
+            CSV += row + '\r\n';
+        }
+
+        if (CSV === '') {
+            return
+        }
+
+        var fileName;
+        if (ReportTitle == "") {
+            fileName = 'MyReport';
+        } else {
+            fileName = ReportTitle;
+        }
+        // Generate a file name
+        // let fileName = 'MyReport_';
+        // this will remove the blank-spaces from the title and replace it with an underscore
+        // fileName += ReportTitle.replace(/ /g, '_');
+
+// Initialize file format you want csv or xls
+//         const uri = `data:text/csv;charset=utf-8,${escape(CSV)}`;
+        const uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+// Now the little tricky part.
+// you can use either>> window.open(uri);
+// but this will not work in some browsers
+// or you will not get the correct file extension
+// this trick will generate a temp <a /> tag
+        const link = document.createElement('a');
+        link.href = uri;
+
+// set the visibility hidden so it will not effect on your web-layout
+        link.style = 'visibility:hidden';
+        // link.download = `${fileName}.csv`;
+        link.download = fileName + '.csv';
+
+// this part will append the anchor tag and remove it after automatic click
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+</script>
+
+</body>
+</html>
